@@ -1,0 +1,28 @@
+{
+  "name": "speech-to-tasks-layer",
+  "version": "1.0.0",
+  "description": "Translation layer between continuous speech-to-speech LLM interaction and discrete task execution via MCP",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "echo \"Tests not yet implemented\" && exit 0"
+  },
+  "keywords": [
+    "mcp",
+    "speech-to-speech",
+    "llm",
+    "task-orchestration",
+    "stream-processing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}
