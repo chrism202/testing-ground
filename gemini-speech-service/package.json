@@ -1,0 +1,26 @@
+{
+  "name": "gemini-speech-service",
+  "version": "1.0.0",
+  "description": "Real-time speech-to-speech service using Google Gemini Live API",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "gemini",
+    "speech",
+    "websocket",
+    "webrtc",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^0.5.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "ws": "^8.18.0"
+  }
+}

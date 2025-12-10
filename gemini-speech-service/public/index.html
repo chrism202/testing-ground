@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Live Speech</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 0.9em;
+    }
+
+    .status {
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .status.disconnected {
+      background-color: #fee;
+      color: #c33;
+    }
+
+    .status.connecting {
+      background-color: #fef3cd;
+      color: #856404;
+    }
+
+    .status.connected {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-danger {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .recording-indicator {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .recording-indicator.active {
+      display: flex;
+    }
+
+    .pulse {
+      width: 12px;
+      height: 12px;
+      background: #dc3545;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .transcript {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      min-height: 200px;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .message.user {
+      background: #e3f2fd;
+      margin-left: 20px;
+    }
+
+    .message.assistant {
+      background: #f3e5f5;
+      margin-right: 20px;
+    }
+
+    .message-label {
+      font-weight: 600;
+      font-size: 0.85em;
+      margin-bottom: 5px;
+      opacity: 0.7;
+    }
+
+    .audio-visualizer {
+      width: 100%;
+      height: 100px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Gemini Live Speech</h1>
+    <p class="subtitle">Real-time speech-to-speech conversation</p>
+
+    <div id="status" class="status disconnected">
+      Disconnected
+    </div>
+
+    <div class="recording-indicator" id="recordingIndicator">
+      <div class="pulse"></div>
+      <span>Recording...</span>
+    </div>
+
+    <canvas id="visualizer" class="audio-visualizer"></canvas>
+
+    <div class="controls">
+      <button id="connectBtn" class="btn-primary">Connect</button>
+      <button id="startBtn" class="btn-primary" disabled>Start Talking</button>
+      <button id="stopBtn" class="btn-danger" disabled>Stop Talking</button>
+    </div>
+
+    <div class="transcript" id="transcript">
+      <p style="color: #999; text-align: center;">Transcript will appear here...</p>
+    </div>
+  </div>
+
+  <script src="client.js"></script>
+</body>
+</html>
