@@ -1,0 +1,19 @@
+{
+  "name": "cctv-person-matcher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Upload a bulk repository of CCTV images to Vercel Blob, then find the images that likely contain a person similar to a supplied query image using face embeddings.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vercel/blob": "^0.27.0",
+    "next": "14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "replicate": "^1.0.1"
+  }
+}
