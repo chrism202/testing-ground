@@ -7,7 +7,42 @@ const score = provider => scores[provider.id] || { elo: provider.seedElo, votes:
 const number = value => new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(value);
 const date = iso => new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeZone: 'UTC' }).format(new Date(iso + 'T12:00:00Z'));
 let catalog, scores = {}, claimVotes = {}, voted = new Set(), category = 'all', current, busy = false;
-let pendingRequest, statusTimer;
+let pendingRequest, statusTimer, categoryRefresh = false;
+const categoryInfo = id => catalog.categories.find(c => c.id === id);
+const categoryLabel = id => categoryInfo(id)?.title || id;
+
+function categoryFromURL() {
+  const value = new URL(location.href).searchParams.get('category');
+  return categoryInfo(value) ? value : 'all';
+}
+function syncCategory() {
+  document.querySelectorAll('.tab').forEach(tab => {
+    const selected = tab.dataset.category === category;
+    tab.classList.toggle('active', selected);
+    tab.setAttribute('aria-selected', String(selected));
+  });
+  document.querySelectorAll('[data-category-link]').forEach(link => {
+    const url = new URL(link.href);
+    if (category === 'all') url.searchParams.delete('category');
+    else url.searchParams.set('category', category);
+    link.href = url.pathname + url.search + url.hash;
+  });
+  const description = $('#category-description');
+  description.hidden = category === 'all';
+  description.textContent = categoryInfo(category)?.description || '';
+}
+function changeCategory(next, updateHistory = false) {
+  if (updateHistory) {
+    const url = new URL(location.href);
+    if (next === 'all') url.searchParams.delete('category');
+    else url.searchParams.set('category', next);
+    history.pushState(null, '', url);
+  }
+  category = next;
+  syncCategory(); renderRankings();
+  if (busy) categoryRefresh = true;
+  else void matchup();
+}
 
 function setStatus(text, temporary = false) {
   const status = $('#vote-status');
@@ -36,7 +71,7 @@ function renderRankings() {
     const rating = score(provider);
     const percent = Math.max(0, Math.min(100, rating.elo/maximum*100));
     const color = /^#[0-9a-f]{6}$/i.test(provider.color) ? provider.color : '#e43b29';
-    return `<tr data-provider="${escape(provider.id)}" style="--provider-color:${color}"><td class="rank-cell"><span class="rank">${String(index+1).padStart(2,'0')}</span></td><td class="provider-cell"><a class="provider" href="${escape(provider.url)}" target="_blank" rel="noopener noreferrer"><span class="provider-mark" aria-hidden="true">${escape(provider.mark || provider.name.charAt(0))}</span><span class="provider-label"><span class="provider-name">${escape(provider.name)}</span><span class="provider-category">${escape(provider.category)}</span></span><span class="provider-external">${arrow}</span></a></td><td class="rating-cell"><div class="rating-value"><div class="score-track" aria-hidden="true"><span class="score-bar" style="width:${percent}%"></span></div><strong class="elo">${Math.round(rating.elo).toLocaleString('en-US')}</strong></div></td><td class="votes">${rating.votes.toLocaleString('en-US')}</td></tr>`;
+    return `<tr data-provider="${escape(provider.id)}" style="--provider-color:${color}"><td class="rank-cell"><span class="rank">${String(index+1).padStart(2,'0')}</span></td><td class="provider-cell"><a class="provider" href="${escape(provider.url)}" target="_blank" rel="noopener noreferrer"><span class="provider-mark" aria-hidden="true">${escape(provider.mark || provider.name.charAt(0))}</span><span class="provider-label"><span class="provider-name">${escape(provider.name)}</span><span class="provider-category">${escape(categoryLabel(provider.category))}</span></span><span class="provider-external">${arrow}</span></a></td><td class="rating-cell"><div class="rating-value"><div class="score-track" aria-hidden="true"><span class="score-bar" style="width:${percent}%"></span></div><strong class="elo">${Math.round(rating.elo).toLocaleString('en-US')}</strong></div></td><td class="votes">${rating.votes.toLocaleString('en-US')}</td></tr>`;
   }).join('');
   $('#roster-count').textContent = `${rows.length} leaderboard${rows.length===1?'':'s'}`;
 }
@@ -66,7 +101,7 @@ async function matchup(skip = false, refresh = true) {
       $('#claim-provider').textContent = 'You’ve called them all.';
       $('#claim-metric').textContent = 'Try another category, or take a look at the rankings.';
       $('#proposition').textContent = 'No more rankings in this category.';
-      $('#claim-question').innerHTML = `<a href="/" class="complete-link">See the rankings ${arrow}</a>`;
+      $('#claim-question').innerHTML = `<a href="/${category === 'all' ? '' : '?category='+encodeURIComponent(category)}" class="complete-link">See the rankings ${arrow}</a>`;
       $('#arena-category').textContent = '';
       return true;
     }
@@ -74,7 +109,7 @@ async function matchup(skip = false, refresh = true) {
     const color = /^#[0-9a-f]{6}$/i.test(provider.color) ? provider.color : '#e43b29';
     $('#arena').style.setProperty('--provider-color', color);
     $('#claim-mark').textContent = provider.mark || provider.name.charAt(0);
-    $('#arena-category').textContent = current.category;
+    $('#arena-category').textContent = categoryLabel(current.category);
     $('#claim-provider').textContent = provider.name;
     $('#proposition').textContent = `${provider.name} ranks ${current.modelA} above ${current.modelB}.`;
     $('#model-a').textContent = current.modelA;
@@ -83,6 +118,10 @@ async function matchup(skip = false, refresh = true) {
     for (const [letter,value] of [['a',current.scoreA],['b',current.scoreB]]) {
       $('#model-'+letter+'-score').textContent = number(value);
       $('#model-'+letter+'-bar').style.width = Math.max(0, Math.min(100, value/maximum*100))+'%';
+      const stats = current[letter === 'a' ? 'modelAStats' : 'modelBStats'] || [];
+      const details = $('#model-'+letter+'-stats');
+      details.hidden = !stats.length;
+      details.innerHTML = stats.map(s => `<div><dt>${escape(s.label)}</dt><dd>${escape(s.value)}</dd></div>`).join('');
     }
     $('#claim-question').textContent = 'Does that ranking check out?';
     $('#claim-metric').textContent = current.metric;
@@ -101,7 +140,11 @@ async function matchup(skip = false, refresh = true) {
     $('#claim-metric').textContent = 'Please reload to try again.';
     setStatus(error.message);
     return false;
-  } finally { busy = false; controls(); }
+  } finally {
+    // Selection reads the latest category after the shared-state request finishes.
+    categoryRefresh = false;
+    busy = false; controls();
+  }
 }
 function saveLocal() {
   try { localStorage.setItem(localKey, JSON.stringify({scores, voted:[...voted]})); return true; }
@@ -136,7 +179,10 @@ async function vote(agree) {
     const advanced = await matchup();
     if (advanced) setStatus(saved ? 'Noted.' : 'Your browser couldn’t save this vote.', saved);
   } catch (error) { setStatus(error.message); }
-  finally { busy = false; controls(); }
+  finally {
+    busy = false; controls();
+    if (categoryRefresh) { categoryRefresh = false; void matchup(); }
+  }
 }
 async function init() {
   try {
@@ -156,14 +202,14 @@ async function init() {
         }
       } catch {}
     }
+    category = categoryFromURL(); syncCategory();
     renderRankings(); await matchup(false, false);
     $('#results').setAttribute('aria-busy','false');
     document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
       if (busy) return;
-      category = tab.dataset.category;
-      document.querySelectorAll('.tab').forEach(t => {t.classList.toggle('active',t===tab);t.setAttribute('aria-selected',String(t===tab));});
-      renderRankings(); matchup();
+      if (category !== tab.dataset.category) changeCategory(tab.dataset.category, true);
     }));
+    window.addEventListener('popstate', () => changeCategory(categoryFromURL()));
     document.querySelectorAll('[data-view]').forEach(button => {
       if (button.tagName !== 'BUTTON') return;
       button.addEventListener('click', () => {

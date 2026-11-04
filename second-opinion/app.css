@@ -304,3 +304,20 @@ h1 em,h2 em { color:var(--red); font-style:normal; }
   .page-intro h1 { font-size:47px; letter-spacing:-3px; }
   .arena-intro h1 { font-size:40px; letter-spacing:-2.8px; }
 }
+
+/* Category navigation and published comparison context. */
+.categories { flex-wrap:wrap; }
+.category-description { margin:0; padding:14px 0 20px; color:var(--muted, #756b62); font-size:13px; line-height:1.6; }
+.model-stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 24px; border-top:1px solid var(--line); padding-top:20px; margin:24px 0 0; }
+.model-stats[hidden] { display:none; }
+.model-stats dt { font:10px ui-monospace,SFMono-Regular,Consolas,monospace; color:#756b62; margin-bottom:6px; }
+.model-stats dd { font-size:14px; margin:0; overflow-wrap:anywhere; }
+@media (max-width:700px) {
+  .results-toolbar,.arena-toolbar { flex-wrap:wrap; }
+  .categories { width:100%; gap:3px; }
+  .tab { padding:10px 11px; }
+  .view-controls { margin-left:auto; }
+  .arena-toolbar-label { display:none; }
+  .model-stats { margin-top:20px; gap:16px; }
+  .model-stats dd { font-size:12px; }
+}

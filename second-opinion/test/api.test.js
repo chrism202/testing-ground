@@ -99,3 +99,22 @@ test('signed browser identities persist and reject modified cookies', () => {
     assert.ok(first.headers['Set-Cookie'].includes('HttpOnly; SameSite=Lax'));
   } finally { if (old===undefined) delete process.env.VOTE_SECRET; else process.env.VOTE_SECRET=old; }
 });
+
+
+test('voice agents and image generation are separate, sourced categories', () => {
+  const categories = new Set(catalog.categories.map(c => c.id));
+  assert.deepEqual([...categories], ['text', 'speech', 'agents', 'images']);
+  for (const p of catalog.providers) assert.ok(categories.has(p.category));
+  const agents = catalog.providers.filter(p => p.category === 'agents');
+  assert.deepEqual(agents.map(p => p.id), ['aa-speech-agents', 'eva-bench']);
+  assert.equal(catalog.providers.filter(p => p.category === 'images').length, 3);
+  const metrics = catalog.claims.filter(c => c.category === 'agents').map(c => c.metric);
+  for (const metric of ['Human preference · Elo', 'Task success rate (%)', 'EVA-Accuracy · pass@1 (%)', 'EVA-Experience · pass@1 (%)']) {
+    assert.ok(metrics.includes(metric));
+  }
+  for (const c of catalog.claims) {
+    for (const stats of [c.modelAStats || [], c.modelBStats || []]) {
+      assert.ok(stats.every(s => s.label && typeof s.value === 'string'));
+    }
+  }
+});
