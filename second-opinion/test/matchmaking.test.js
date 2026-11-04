@@ -50,7 +50,7 @@ test('the actual catalog prioritizes unjudged Opus–Astra over already-covered 
   assert.ok(catalog.claims.every(c => Number.isInteger(c.relevance) && c.relevance >= 1 && c.relevance <= 5));
   const frontier = catalog.claims.find(c => c.id.startsWith('epoch-eci-astra-opus'));
   const historical = catalog.claims.find(c => c.id.startsWith('stanford-helm-gemini'));
-  const niche = catalog.claims.find(c => c.id.startsWith('aa-terminalbench-fable-effort'));
+  const niche = catalog.claims.find(c => c.id.startsWith('tts-arena-named-active-2'));
   assert.equal(selectClaim([historical, niche, frontier], {
     now, claimVotes: { [niche.id]: 9 }, random: () => 0,
   }).id, frontier.id);

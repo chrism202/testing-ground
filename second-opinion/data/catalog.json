@@ -35,7 +35,7 @@
     {
       "id": "aa-provider-voice",
       "category": "speech",
-      "name": "AA · Provider Voice",
+      "name": "AA \u00b7 Provider Voice",
       "desc": "Their native voices. Your second opinion.",
       "url": "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice",
       "seedElo": 1210,
@@ -49,41 +49,13 @@
     {
       "id": "aa-controlled-voice",
       "category": "speech",
-      "name": "AA · Controlled Voice",
+      "name": "AA \u00b7 Controlled Voice",
       "desc": "Same cloned voices. Different rankings.",
       "url": "https://artificialanalysis.ai/text-to-speech/leaderboard/controlled-voice",
       "seedElo": 1230,
       "seedReason": "Controlling the voices helps comparisons; voice-cloning skill and preference are still different things.",
       "researchUrls": [
         "https://artificialanalysis.ai/text-to-speech/leaderboard/controlled-voice"
-      ],
-      "color": "#8264c5",
-      "mark": "AA"
-    },
-    {
-      "id": "aa-terminalbench",
-      "category": "agents",
-      "name": "AA · Terminal-Bench 2.1",
-      "desc": "An evaluation of the evaluation.",
-      "url": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
-      "seedElo": 1240,
-      "seedReason": "A documented common harness and repeated runs earn credit; this is one terminal-task distribution.",
-      "researchUrls": [
-        "https://artificialanalysis.ai/evaluations/terminalbench-2-1"
-      ],
-      "color": "#8264c5",
-      "mark": "AA"
-    },
-    {
-      "id": "aa-automationbench",
-      "category": "agents",
-      "name": "AA · AutomationBench",
-      "desc": "Workflow scores with a side of scrutiny.",
-      "url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
-      "seedElo": 1200,
-      "seedReason": "Work-like tasks are welcome; private tasks and partial-credit choices are harder to independently audit.",
-      "researchUrls": [
-        "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3"
       ],
       "color": "#8264c5",
       "mark": "AA"
@@ -176,51 +148,6 @@
       "mark": "H"
     },
     {
-      "id": "berkeley-bfcl",
-      "category": "agents",
-      "name": "Berkeley BFCL",
-      "url": "https://gorilla.cs.berkeley.edu/leaderboard.html",
-      "seedElo": 1320,
-      "desc": "A tool-use leaderboard. Call it out.",
-      "seedReason": "Open tooling and a clear function-calling focus help. Tool-calling skill is narrower than general agent usefulness.",
-      "researchUrls": [
-        "https://gorilla.cs.berkeley.edu/leaderboard.html"
-      ],
-      "color": "#316d93",
-      "mark": "BF"
-    },
-    {
-      "id": "aider-polyglot",
-      "category": "agents",
-      "name": "Aider",
-      "url": "https://aider.chat/docs/leaderboards/",
-      "seedElo": 1290,
-      "desc": "Show your work. And your edit format.",
-      "seedReason": "Reproducible runs and practical code-editing tasks are well regarded. This is a historical, harness-specific exercise suite.",
-      "researchUrls": [
-        "https://aider.chat/docs/leaderboards/",
-        "https://aider.chat/2024/12/21/polyglot.html"
-      ],
-      "color": "#517543",
-      "mark": "ai"
-    },
-    {
-      "id": "swebench",
-      "category": "agents",
-      "name": "SWE-bench",
-      "url": "https://www.swebench.com/",
-      "seedElo": 1190,
-      "desc": "Real GitHub issues. Real caveats.",
-      "seedReason": "An influential real-repository task suite. Public-task contamination and harness effects temper the starting score.",
-      "researchUrls": [
-        "https://www.swebench.com/",
-        "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
-        "https://epoch.ai/benchmarks/swe-bench-verified/review"
-      ],
-      "color": "#d0523e",
-      "mark": "Sw"
-    },
-    {
       "id": "tts-arena",
       "category": "speech",
       "name": "TTS Arena",
@@ -250,18 +177,78 @@
       "mark": "HF"
     },
     {
-      "id": "gaia",
+      "id": "aa-speech-agents",
       "category": "agents",
-      "name": "GAIA",
-      "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
-      "seedElo": 1130,
-      "desc": "General assistants, specific submissions.",
-      "seedReason": "Multi-step assistant tasks are compelling. Public validation tasks and self-reported system submissions keep our seed cautious.",
+      "name": "AA \u00b7 Speech Agent Arena",
+      "url": "https://artificialanalysis.ai/speech-to-speech/arena",
+      "seedElo": 1230,
+      "desc": "Good conversation. Better cross-examination.",
+      "seedReason": "Blind human preference and a separate task-success measure offer complementary signals. Prompted tasks, sample sizes and managed-agent configurations still constrain the comparison.",
       "researchUrls": [
-        "https://huggingface.co/spaces/gaia-benchmark/leaderboard"
+        "https://artificialanalysis.ai/speech-to-speech/arena",
+        "https://artificialanalysis.ai/methodology/speech-to-speech-benchmarking/"
       ],
-      "color": "#8d548f",
-      "mark": "G"
+      "color": "#8264c5",
+      "mark": "AA"
+    },
+    {
+      "id": "eva-bench",
+      "category": "agents",
+      "name": "ServiceNow \u00b7 EVA-Bench",
+      "url": "https://servicenow.github.io/eva/",
+      "seedElo": 1280,
+      "desc": "Can it talk the talk and finish the task?",
+      "seedReason": "Open evaluation code and separate accuracy and experience metrics earn credit. Scripted conversations and automated judging remain a narrower test than real deployment.",
+      "researchUrls": [
+        "https://servicenow.github.io/eva/",
+        "https://github.com/ServiceNow/eva",
+        "https://github.com/ServiceNow/NOWAI-Bench"
+      ],
+      "color": "#347a66",
+      "mark": "EVA"
+    },
+    {
+      "id": "aa-image-arena",
+      "category": "images",
+      "name": "AA \u00b7 Image Arena",
+      "url": "https://artificialanalysis.ai/text-to-image/arena",
+      "seedElo": 1220,
+      "desc": "A thousand words. One disputed ranking.",
+      "seedReason": "Blind preference testing with published samples and uncertainty is useful. Prompt distribution and exact quality settings affect the ordering.",
+      "researchUrls": [
+        "https://artificialanalysis.ai/text-to-image/arena",
+        "https://artificialanalysis.ai/embed/text-to-image-leaderboard/leaderboard/text-to-image"
+      ],
+      "color": "#8264c5",
+      "mark": "AA"
+    },
+    {
+      "id": "arena-image",
+      "category": "images",
+      "name": "Arena \u00b7 Text-to-Image",
+      "url": "https://arena.ai/leaderboard/image/text-to-image",
+      "seedElo": 1160,
+      "desc": "The crowd has an eye for this.",
+      "seedReason": "A large public preference sample earns credit. Preliminary models, prompt selection and configuration differences warrant caution.",
+      "researchUrls": [
+        "https://arena.ai/leaderboard/image/text-to-image"
+      ],
+      "color": "#e93f2b",
+      "mark": "Ar"
+    },
+    {
+      "id": "designarena-image",
+      "category": "images",
+      "name": "DesignArena \u00b7 Image",
+      "url": "https://www.designarena.ai/leaderboard/image",
+      "seedElo": 1140,
+      "desc": "Aesthetic judgment, under review.",
+      "seedReason": "Design-focused human battles add another perspective. Overall and category-specific scores differ, and preference is not universal image capability.",
+      "researchUrls": [
+        "https://www.designarena.ai/leaderboard/image"
+      ],
+      "color": "#2470c8",
+      "mark": "DA"
     }
   ],
   "claims": [
@@ -305,7 +292,7 @@
       "modelB": "Claude Fable 5.1 (Max)",
       "scoreA": 1509,
       "scoreB": 1504,
-      "metric": "Text Arena, Overall · style control off",
+      "metric": "Text Arena, Overall \u00b7 style control off",
       "sourceUrl": "https://arena.ai/leaderboard/chat/text?style=false",
       "sourceDate": "2026-10-27",
       "checkedOn": "2026-11-03",
@@ -321,7 +308,7 @@
       "modelB": "GPT-6 Astra (Max)",
       "scoreA": 1528,
       "scoreB": 1476,
-      "metric": "Text Arena, Overall · style control off",
+      "metric": "Text Arena, Overall \u00b7 style control off",
       "sourceUrl": "https://arena.ai/leaderboard/chat/text?style=false",
       "sourceDate": "2026-10-27",
       "checkedOn": "2026-11-03",
@@ -337,7 +324,7 @@
       "modelB": "Sonic 3.6",
       "scoreA": 1334,
       "scoreB": 1293,
-      "metric": "Provider Voice Arena · all accents",
+      "metric": "Provider Voice Arena \u00b7 all accents",
       "sourceUrl": "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -353,7 +340,7 @@
       "modelB": "Fish Audio Drama 3",
       "scoreA": 1301,
       "scoreB": 1272,
-      "metric": "Provider Voice Arena · all accents",
+      "metric": "Provider Voice Arena \u00b7 all accents",
       "sourceUrl": "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -369,7 +356,7 @@
       "modelB": "Sonic 3.6",
       "scoreA": 1189,
       "scoreB": 1147,
-      "metric": "Controlled Voice Arena · English US & UK",
+      "metric": "Controlled Voice Arena \u00b7 English US & UK",
       "sourceUrl": "https://artificialanalysis.ai/text-to-speech/leaderboard/controlled-voice",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -385,77 +372,13 @@
       "modelB": "Eleven v4",
       "scoreA": 1179,
       "scoreB": 1155,
-      "metric": "Controlled Voice Arena · English US & UK",
+      "metric": "Controlled Voice Arena \u00b7 English US & UK",
       "sourceUrl": "https://artificialanalysis.ai/text-to-speech/leaderboard/controlled-voice",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; model settings are part of each model name.",
       "lowerIsBetter": false,
       "relevance": 4
-    },
-    {
-      "id": "aa-terminalbench-fable-astra-2026-11-03",
-      "providerId": "aa-terminalbench",
-      "category": "agents",
-      "modelA": "Claude Fable 5.1 (Max, Default Fallback)",
-      "modelB": "GPT-6 Astra (High)",
-      "scoreA": 91.4,
-      "scoreB": 89.9,
-      "metric": "Terminal-Bench 2.1 · pass@1 (%)",
-      "sourceUrl": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
-      "sourceDate": "2026-11-03",
-      "checkedOn": "2026-11-03",
-      "notes": "Artificial Analysis runs the Terminus 2 harness, averaged over three repeats per task.",
-      "lowerIsBetter": false,
-      "relevance": 5
-    },
-    {
-      "id": "aa-terminalbench-fable-effort-2026-11-03",
-      "providerId": "aa-terminalbench",
-      "category": "agents",
-      "modelA": "Claude Fable 5.1 (Max, Default Fallback)",
-      "modelB": "Claude Fable 5.1 (Xhigh, Default Fallback)",
-      "scoreA": 91.4,
-      "scoreB": 91.0,
-      "metric": "Terminal-Bench 2.1 · pass@1 (%)",
-      "sourceUrl": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
-      "sourceDate": "2026-11-03",
-      "checkedOn": "2026-11-03",
-      "notes": "Same model, different reasoning effort. You are judging this published ordering.",
-      "lowerIsBetter": false,
-      "relevance": 2
-    },
-    {
-      "id": "aa-automationbench-astra-grok-2026-09-07",
-      "providerId": "aa-automationbench",
-      "category": "agents",
-      "modelA": "GPT-6 Astra (max)",
-      "modelB": "Grok 4.6 (high)",
-      "scoreA": 68.5,
-      "scoreB": 66.7,
-      "metric": "AutomationBench-AA · objective score (%)",
-      "sourceUrl": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
-      "sourceDate": "2026-09-07",
-      "checkedOn": "2026-11-03",
-      "notes": "Historical snapshot from the Index v4.3 launch article, not a live leaderboard. Partial-credit objective score with no guardrail violations.",
-      "lowerIsBetter": false,
-      "relevance": 4
-    },
-    {
-      "id": "aa-automationbench-grok-glm-2026-09-07",
-      "providerId": "aa-automationbench",
-      "category": "agents",
-      "modelA": "Grok 4.6 (high)",
-      "modelB": "GLM-5.3 (max)",
-      "scoreA": 66.7,
-      "scoreB": 62.2,
-      "metric": "AutomationBench-AA · objective score (%)",
-      "sourceUrl": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
-      "sourceDate": "2026-09-07",
-      "checkedOn": "2026-11-03",
-      "notes": "Historical snapshot from the Index v4.3 launch article, not a live leaderboard. Partial-credit objective score with no guardrail violations.",
-      "lowerIsBetter": false,
-      "relevance": 3
     },
     {
       "id": "livebench-fable-astra-2026-10-25",
@@ -465,11 +388,11 @@
       "modelB": "gpt-6-astra",
       "scoreA": 85.69,
       "scoreB": 85.64,
-      "metric": "LiveBench 2.0 · weighted overall (%)",
+      "metric": "LiveBench 2.0 \u00b7 weighted overall (%)",
       "sourceUrl": "https://livebench.ai/",
       "sourceDate": "2026-10-25",
       "checkedOn": "2026-11-03",
-      "notes": "Computed from the official table using its published weights: Long Agentic ×2, Coding and Design ×1.5, others ×1. Rounded to two decimals.",
+      "notes": "Computed from the official table using its published weights: Long Agentic \u00d72, Coding and Design \u00d71.5, others \u00d71. Rounded to two decimals.",
       "lowerIsBetter": false,
       "dataUrl": "https://livebench.ai/data/20261025/table.csv",
       "relevance": 5
@@ -482,11 +405,11 @@
       "modelB": "gpt-6.1-sol",
       "scoreA": 85.14,
       "scoreB": 84.07,
-      "metric": "LiveBench 2.0 · weighted overall (%)",
+      "metric": "LiveBench 2.0 \u00b7 weighted overall (%)",
       "sourceUrl": "https://livebench.ai/",
       "sourceDate": "2026-10-25",
       "checkedOn": "2026-11-03",
-      "notes": "Computed from the official table using its published weights: Long Agentic ×2, Coding and Design ×1.5, others ×1. Rounded to two decimals.",
+      "notes": "Computed from the official table using its published weights: Long Agentic \u00d72, Coding and Design \u00d71.5, others \u00d71. Rounded to two decimals.",
       "lowerIsBetter": false,
       "dataUrl": "https://livebench.ai/data/20261025/table.csv",
       "relevance": 4
@@ -533,7 +456,7 @@
       "modelB": "Claude Opus 5.5",
       "scoreA": 70.85,
       "scoreB": 70.18,
-      "metric": "Vals Index v2.2 · accuracy (%)",
+      "metric": "Vals Index v2.2 \u00b7 accuracy (%)",
       "sourceUrl": "https://www.vals.ai/benchmarks/vals_index",
       "sourceDate": "2026-10-30",
       "checkedOn": "2026-11-03",
@@ -549,7 +472,7 @@
       "modelB": "GPT-6 Astra",
       "scoreA": 70.45,
       "scoreB": 65.02,
-      "metric": "Vals Index v2.2 · accuracy (%)",
+      "metric": "Vals Index v2.2 \u00b7 accuracy (%)",
       "sourceUrl": "https://www.vals.ai/benchmarks/vals_index",
       "sourceDate": "2026-10-30",
       "checkedOn": "2026-11-03",
@@ -565,7 +488,7 @@
       "modelB": "claude-opus-5-5",
       "scoreA": 60.6,
       "scoreB": 55.0,
-      "metric": "Humanity’s Last Exam (Diamond) · score (%)",
+      "metric": "Humanity\u2019s Last Exam (Diamond) \u00b7 score (%)",
       "sourceUrl": "https://labs.scale.com/leaderboard",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -581,7 +504,7 @@
       "modelB": "Gemini 4 Argon",
       "scoreA": 81.95,
       "scoreB": 78.7,
-      "metric": "MultiChallenge (Large Language Models) · score (%)",
+      "metric": "MultiChallenge (Large Language Models) \u00b7 score (%)",
       "sourceUrl": "https://labs.scale.com/leaderboard",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -597,7 +520,7 @@
       "modelB": "Claude Fable 5.1",
       "scoreA": 88.4,
       "scoreB": 86.6,
-      "metric": "SimpleBench MCQ · AVG@5 (%)",
+      "metric": "SimpleBench MCQ \u00b7 AVG@5 (%)",
       "sourceUrl": "https://simple-bench.com/",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -614,7 +537,7 @@
       "modelB": "GPT-6.1 Sol",
       "scoreA": 83.6,
       "scoreB": 82.9,
-      "metric": "SimpleBench MCQ · AVG@5 (%)",
+      "metric": "SimpleBench MCQ \u00b7 AVG@5 (%)",
       "sourceUrl": "https://simple-bench.com/",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -631,7 +554,7 @@
       "modelB": "GPT-4o (2024-11-20)",
       "scoreA": 0.679,
       "scoreB": 0.634,
-      "metric": "HELM Capabilities · mean score (0–1)",
+      "metric": "HELM Capabilities \u00b7 mean score (0\u20131)",
       "sourceUrl": "https://crfm.stanford.edu/helm/capabilities/latest/",
       "sourceDate": "2025-03-20",
       "checkedOn": "2026-11-03",
@@ -648,113 +571,13 @@
       "modelB": "DeepSeek v3",
       "scoreA": 0.674,
       "scoreB": 0.665,
-      "metric": "HELM Capabilities · mean score (0–1)",
+      "metric": "HELM Capabilities \u00b7 mean score (0\u20131)",
       "sourceUrl": "https://crfm.stanford.edu/helm/capabilities/latest/",
       "sourceDate": "2025-03-20",
       "checkedOn": "2026-11-03",
       "notes": "Historical launch-article snapshot from March 2025, not the latest HELM release.",
       "lowerIsBetter": false,
       "dataUrl": "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html",
-      "relevance": 2
-    },
-    {
-      "id": "berkeley-bfcl-opus-sonnet-2026-04-12",
-      "providerId": "berkeley-bfcl",
-      "category": "agents",
-      "modelA": "Claude-Opus-4-5-20251101 (FC)",
-      "modelB": "Claude-Sonnet-4-5-20250929 (FC)",
-      "scoreA": 77.47,
-      "scoreB": 73.24,
-      "metric": "BFCL V4 · overall accuracy (%)",
-      "sourceUrl": "https://gorilla.cs.berkeley.edu/leaderboard.html",
-      "sourceDate": "2026-04-12",
-      "checkedOn": "2026-11-03",
-      "notes": "Published V4 board. FC and Prompt modes are kept in the model labels; they are not identical configurations.",
-      "lowerIsBetter": false,
-      "dataUrl": "https://gorilla.cs.berkeley.edu/data_overall.csv",
-      "relevance": 3
-    },
-    {
-      "id": "berkeley-bfcl-sonnet-gemini-2026-04-12",
-      "providerId": "berkeley-bfcl",
-      "category": "agents",
-      "modelA": "Claude-Sonnet-4-5-20250929 (FC)",
-      "modelB": "Gemini-3-Pro-Preview (Prompt)",
-      "scoreA": 73.24,
-      "scoreB": 72.51,
-      "metric": "BFCL V4 · overall accuracy (%)",
-      "sourceUrl": "https://gorilla.cs.berkeley.edu/leaderboard.html",
-      "sourceDate": "2026-04-12",
-      "checkedOn": "2026-11-03",
-      "notes": "Published V4 board. FC and Prompt modes are kept in the model labels; they are not identical configurations.",
-      "lowerIsBetter": false,
-      "dataUrl": "https://gorilla.cs.berkeley.edu/data_overall.csv",
-      "relevance": 3
-    },
-    {
-      "id": "aider-polyglot-gpt5-o3pro-2025-08-25",
-      "providerId": "aider-polyglot",
-      "category": "agents",
-      "modelA": "gpt-5 (high)",
-      "modelB": "o3-pro (high)",
-      "scoreA": 88.0,
-      "scoreB": 84.9,
-      "metric": "Aider Polyglot · percent correct",
-      "sourceUrl": "https://aider.chat/docs/leaderboards/",
-      "sourceDate": "2025-08-25",
-      "checkedOn": "2026-11-03",
-      "notes": "Historical published runs on 225 Exercism tasks. Different run dates and edit formats; source logs are available.",
-      "lowerIsBetter": false,
-      "relevance": 2
-    },
-    {
-      "id": "aider-polyglot-o3pro-gemini-2025-08-25",
-      "providerId": "aider-polyglot",
-      "category": "agents",
-      "modelA": "o3-pro (high)",
-      "modelB": "gemini-2.5-pro-preview-06-05 (32k think)",
-      "scoreA": 84.9,
-      "scoreB": 83.1,
-      "metric": "Aider Polyglot · percent correct",
-      "sourceUrl": "https://aider.chat/docs/leaderboards/",
-      "sourceDate": "2025-08-25",
-      "checkedOn": "2026-11-03",
-      "notes": "Historical published runs on 225 Exercism tasks. Different run dates and edit formats; source logs are available.",
-      "lowerIsBetter": false,
-      "relevance": 2
-    },
-    {
-      "id": "swebench-opus45-opus46-2026-02-17",
-      "providerId": "swebench",
-      "category": "agents",
-      "modelA": "Claude 4.5 Opus · mini-SWE-agent 2.0.0",
-      "modelB": "Claude 4.6 Opus · mini-SWE-agent 2.0.0",
-      "scoreA": 76.8,
-      "scoreB": 75.6,
-      "metric": "SWE-bench Verified · resolved (%)",
-      "sourceUrl": "https://www.swebench.com/",
-      "sourceDate": "2026-02-17",
-      "checkedOn": "2026-11-03",
-      "notes": "Both are published checked runs with the same mini-SWE-agent version. Historical February 2026 snapshot.",
-      "lowerIsBetter": false,
-      "dataUrl": "https://raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json",
-      "relevance": 2
-    },
-    {
-      "id": "swebench-gemini-gpt52-2026-02-17",
-      "providerId": "swebench",
-      "category": "agents",
-      "modelA": "Gemini 3 Flash · mini-SWE-agent 2.0.0",
-      "modelB": "GPT 5.2 · mini-SWE-agent 2.0.0",
-      "scoreA": 75.8,
-      "scoreB": 72.8,
-      "metric": "SWE-bench Verified · resolved (%)",
-      "sourceUrl": "https://www.swebench.com/",
-      "sourceDate": "2026-02-17",
-      "checkedOn": "2026-11-03",
-      "notes": "Both are published checked runs with the same mini-SWE-agent version. Historical February 2026 snapshot.",
-      "lowerIsBetter": false,
-      "dataUrl": "https://raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json",
       "relevance": 2
     },
     {
@@ -765,7 +588,7 @@
       "modelB": "Inworld TTS MAX",
       "scoreA": 1586,
       "scoreB": 1545,
-      "metric": "TTS Arena V2 · Elo",
+      "metric": "TTS Arena V2 \u00b7 Elo",
       "sourceUrl": "https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -782,7 +605,7 @@
       "modelB": "Inworld TTS",
       "scoreA": 1545,
       "scoreB": 1529,
-      "metric": "TTS Arena V2 · Elo",
+      "metric": "TTS Arena V2 \u00b7 Elo",
       "sourceUrl": "https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2",
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
@@ -799,7 +622,7 @@
       "modelB": "OtterAI/speech-v3.1",
       "scoreA": 4.87,
       "scoreB": 5.25,
-      "metric": "English short-form · average WER (%)",
+      "metric": "English short-form \u00b7 average WER (%)",
       "sourceUrl": "https://huggingface.co/spaces/hf-audio/open_asr_leaderboard",
       "sourceDate": "2026-11-02",
       "checkedOn": "2026-11-03",
@@ -816,7 +639,7 @@
       "modelB": "reson8/resonant-1",
       "scoreA": 8.44,
       "scoreB": 9.74,
-      "metric": "Long-form · average WER (%)",
+      "metric": "Long-form \u00b7 average WER (%)",
       "sourceUrl": "https://huggingface.co/spaces/hf-audio/open_asr_leaderboard",
       "sourceDate": "2026-11-02",
       "checkedOn": "2026-11-03",
@@ -826,26 +649,672 @@
       "relevance": 3
     },
     {
-      "id": "gaia-alita-versions-2025-05-24",
-      "providerId": "gaia",
+      "id": "aa-speech-preference-cartesia-gemini-2026-11-04",
+      "providerId": "aa-speech-agents",
       "category": "agents",
-      "modelA": "Alita v2.1 · claude-sonnet-4, gpt-4o",
-      "modelB": "Alita v2.0 · claude-3.7-sonnet, gpt-4o",
-      "scoreA": 87.27,
-      "scoreB": 86.06,
-      "metric": "GAIA 2023 · validation accuracy (%)",
-      "sourceUrl": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
-      "sourceDate": "2025-05-24",
-      "checkedOn": "2026-11-03",
-      "notes": "Historical self-reported agent-system submissions, not isolated base-model comparisons. Public validation split.",
+      "modelA": "Cartesia Managed Agents",
+      "modelB": "Gemini 3.1 Flash Live (Minimal)",
+      "scoreA": 1111,
+      "scoreB": 1089,
+      "metric": "Human preference \u00b7 Elo",
+      "sourceUrl": "https://artificialanalysis.ai/speech-to-speech/arena",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "AA Speech Agent Arena snapshot observed November 4. Human-preference Elo and task success are separate rankings, not a combined score. Managed-agent and native speech-to-speech configurations are compared as published.",
       "lowerIsBetter": false,
-      "dataUrl": "https://huggingface.co/datasets/gaia-benchmark/results_public",
-      "relevance": 1
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Task success",
+          "value": "91.7%"
+        },
+        {
+          "label": "Samples",
+          "value": "685"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1083\u20131140"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Task success",
+          "value": "74.6%"
+        },
+        {
+          "label": "Samples",
+          "value": "990"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1064\u20131114"
+        }
+      ]
+    },
+    {
+      "id": "aa-speech-preference-gemini-grok-2026-11-04",
+      "providerId": "aa-speech-agents",
+      "category": "agents",
+      "modelA": "Gemini 3.8 Live",
+      "modelB": "Grok Voice 3.0",
+      "scoreA": 1074,
+      "scoreB": 1059,
+      "metric": "Human preference \u00b7 Elo",
+      "sourceUrl": "https://artificialanalysis.ai/speech-to-speech/arena",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "AA Speech Agent Arena snapshot observed November 4. Human-preference Elo and task success are separate rankings, not a combined score. Managed-agent and native speech-to-speech configurations are compared as published.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Task success",
+          "value": "93.2%"
+        },
+        {
+          "label": "Samples",
+          "value": "606"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1047\u20131101"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Task success",
+          "value": "94.8%"
+        },
+        {
+          "label": "Samples",
+          "value": "668"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1031\u20131086"
+        }
+      ]
+    },
+    {
+      "id": "aa-speech-preference-gpt-eleven-2026-11-04",
+      "providerId": "aa-speech-agents",
+      "category": "agents",
+      "modelA": "GPT-Live-1 (Sol, low)",
+      "modelB": "ElevenLabs Agents (Default Cascaded System)",
+      "scoreA": 1037,
+      "scoreB": 985,
+      "metric": "Human preference \u00b7 Elo",
+      "sourceUrl": "https://artificialanalysis.ai/speech-to-speech/arena",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "AA Speech Agent Arena snapshot observed November 4. Human-preference Elo and task success are separate rankings, not a combined score. Managed-agent and native speech-to-speech configurations are compared as published.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Task success",
+          "value": "90.9%"
+        },
+        {
+          "label": "Samples",
+          "value": "773"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1012\u20131062"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Task success",
+          "value": "90.5%"
+        },
+        {
+          "label": "Samples",
+          "value": "893"
+        }
+      ]
+    },
+    {
+      "id": "aa-speech-task-grok-cartesia-2026-11-04",
+      "providerId": "aa-speech-agents",
+      "category": "agents",
+      "modelA": "Grok Voice 3.0",
+      "modelB": "Cartesia Managed Agents",
+      "scoreA": 94.8,
+      "scoreB": 91.7,
+      "metric": "Task success rate (%)",
+      "sourceUrl": "https://artificialanalysis.ai/speech-to-speech/arena",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "AA Speech Agent Arena snapshot observed November 4. Human-preference Elo and task success are separate rankings, not a combined score. Managed-agent and native speech-to-speech configurations are compared as published.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Preference Elo",
+          "value": "1059"
+        },
+        {
+          "label": "Samples",
+          "value": "668"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Preference Elo",
+          "value": "1111"
+        },
+        {
+          "label": "Samples",
+          "value": "685"
+        }
+      ]
+    },
+    {
+      "id": "aa-speech-task-gemini-eleven-2026-11-04",
+      "providerId": "aa-speech-agents",
+      "category": "agents",
+      "modelA": "Gemini 3.8 Live",
+      "modelB": "ElevenLabs Agents (Default Cascaded System)",
+      "scoreA": 93.2,
+      "scoreB": 90.5,
+      "metric": "Task success rate (%)",
+      "sourceUrl": "https://artificialanalysis.ai/speech-to-speech/arena",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "AA Speech Agent Arena snapshot observed November 4. Human-preference Elo and task success are separate rankings, not a combined score. Managed-agent and native speech-to-speech configurations are compared as published.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Preference Elo",
+          "value": "1074"
+        },
+        {
+          "label": "Samples",
+          "value": "606"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Preference Elo",
+          "value": "985"
+        },
+        {
+          "label": "Samples",
+          "value": "893"
+        }
+      ]
+    },
+    {
+      "id": "eva-accuracy-cartesia-grok-2026-11-04",
+      "providerId": "eva-bench",
+      "category": "agents",
+      "modelA": "Cartesia Managed Agents \u00b7 GPT-5.5",
+      "modelB": "Grok Voice 3.0",
+      "scoreA": 87.41,
+      "scoreB": 73.72,
+      "metric": "EVA-Accuracy \u00b7 pass@1 (%)",
+      "sourceUrl": "https://servicenow.github.io/eva/",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "EVA-Bench public dashboard snapshot observed November 4. Clean-condition pooled pass@1, converted from a 0\u20131 fraction to percent. Accuracy and experience are separate metrics; system names include their published configurations. Automated task and conversation evaluation, not human-preference Elo.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Architecture",
+          "value": "Cascaded"
+        },
+        {
+          "label": "Confidence interval",
+          "value": "83.98\u201390.71%"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Architecture",
+          "value": "Speech-to-speech"
+        },
+        {
+          "label": "Confidence interval",
+          "value": "69.06\u201378.05%"
+        }
+      ]
+    },
+    {
+      "id": "eva-accuracy-eleven-gpt-2026-11-04",
+      "providerId": "eva-bench",
+      "category": "agents",
+      "modelA": "ElevenAgents \u00b7 Scribe v2.2 Realtime / GPT-5.4 / Eleven Flash v2",
+      "modelB": "GPT Realtime 2.1",
+      "scoreA": 67.2,
+      "scoreB": 59.04,
+      "metric": "EVA-Accuracy \u00b7 pass@1 (%)",
+      "sourceUrl": "https://servicenow.github.io/eva/",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "EVA-Bench public dashboard snapshot observed November 4. Clean-condition pooled pass@1, converted from a 0\u20131 fraction to percent. Accuracy and experience are separate metrics; system names include their published configurations. Automated task and conversation evaluation, not human-preference Elo.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Architecture",
+          "value": "Cascaded"
+        },
+        {
+          "label": "Confidence interval",
+          "value": "62.48\u201371.61%"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Architecture",
+          "value": "Speech-to-speech"
+        },
+        {
+          "label": "Confidence interval",
+          "value": "53.89\u201364.09%"
+        }
+      ]
+    },
+    {
+      "id": "eva-experience-cartesia-gemini-2026-11-04",
+      "providerId": "eva-bench",
+      "category": "agents",
+      "modelA": "Cartesia Managed Agents \u00b7 GPT-5.5",
+      "modelB": "Gemini 3.8 Live",
+      "scoreA": 90.7,
+      "scoreB": 88.65,
+      "metric": "EVA-Experience \u00b7 pass@1 (%)",
+      "sourceUrl": "https://servicenow.github.io/eva/",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "EVA-Bench public dashboard snapshot observed November 4. Clean-condition pooled pass@1, converted from a 0\u20131 fraction to percent. Accuracy and experience are separate metrics; system names include their published configurations. Automated task and conversation evaluation, not human-preference Elo.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Architecture",
+          "value": "Cascaded"
+        },
+        {
+          "label": "Confidence interval",
+          "value": "88.52\u201392.79%"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Architecture",
+          "value": "Speech-to-speech"
+        },
+        {
+          "label": "Confidence interval",
+          "value": "85.64\u201391.53%"
+        }
+      ]
+    },
+    {
+      "id": "eva-experience-eleven-gemini-2026-11-04",
+      "providerId": "eva-bench",
+      "category": "agents",
+      "modelA": "ElevenAgents \u00b7 Scribe v2.2 Realtime / Claude Haiku 4.5 / Eleven Flash v2",
+      "modelB": "Gemini 3.8 Live Extended Thinking (Minimal)",
+      "scoreA": 81.67,
+      "scoreB": 79.25,
+      "metric": "EVA-Experience \u00b7 pass@1 (%)",
+      "sourceUrl": "https://servicenow.github.io/eva/",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "EVA-Bench public dashboard snapshot observed November 4. Clean-condition pooled pass@1, converted from a 0\u20131 fraction to percent. Accuracy and experience are separate metrics; system names include their published configurations. Automated task and conversation evaluation, not human-preference Elo.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Architecture",
+          "value": "Cascaded"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Architecture",
+          "value": "Speech-to-speech"
+        }
+      ]
+    },
+    {
+      "id": "aa-image-sunburst-flare-2026-11-04",
+      "providerId": "aa-image-arena",
+      "category": "images",
+      "modelA": "GPT Image 2.5 Sunburst (max)",
+      "modelB": "GPT Image 2.5 Flare (max)",
+      "scoreA": 1223,
+      "scoreB": 1207,
+      "metric": "AA-Image-T2I v2.1 \u00b7 Elo",
+      "sourceUrl": "https://artificialanalysis.ai/text-to-image/arena",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Samples",
+          "value": "13,070"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1213\u20131233"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Samples",
+          "value": "12,418"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1197\u20131217"
+        }
+      ]
+    },
+    {
+      "id": "aa-image-gpt-nanobanana-2026-11-04",
+      "providerId": "aa-image-arena",
+      "category": "images",
+      "modelA": "GPT Image 2 (high)",
+      "modelB": "Nano Banana 2.1",
+      "scoreA": 1189,
+      "scoreB": 1176,
+      "metric": "AA-Image-T2I v2.1 \u00b7 Elo",
+      "sourceUrl": "https://artificialanalysis.ai/text-to-image/arena",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Samples",
+          "value": "12,885"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1178\u20131200"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Samples",
+          "value": "6,248"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1164\u20131188"
+        }
+      ]
+    },
+    {
+      "id": "aa-image-grok-mai-2026-11-04",
+      "providerId": "aa-image-arena",
+      "category": "images",
+      "modelA": "Grok Imagine Image 2.0",
+      "modelB": "MAI-Image 2.6",
+      "scoreA": 1168,
+      "scoreB": 1167,
+      "metric": "AA-Image-T2I v2.1 \u00b7 Elo",
+      "sourceUrl": "https://artificialanalysis.ai/text-to-image/arena",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference. This one-point ordering has overlapping uncertainty intervals.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Samples",
+          "value": "7,523"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1156\u20131180"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Samples",
+          "value": "8,395"
+        },
+        {
+          "label": "Elo interval",
+          "value": "1155\u20131179"
+        }
+      ]
+    },
+    {
+      "id": "arena-image-sunburst-flare-2026-10-26",
+      "providerId": "arena-image",
+      "category": "images",
+      "modelA": "GPT-Image-2.5 Sunburst",
+      "modelB": "GPT-Image-2.5 Flare",
+      "scoreA": 1427,
+      "scoreB": 1401,
+      "metric": "Text-to-image \u00b7 Arena score",
+      "sourceUrl": "https://arena.ai/leaderboard/image/text-to-image",
+      "sourceDate": "2026-10-26",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference. Both entries are preliminary.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Votes",
+          "value": "40,323"
+        },
+        {
+          "label": "Uncertainty",
+          "value": "\u00b15"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Votes",
+          "value": "39,218"
+        },
+        {
+          "label": "Uncertainty",
+          "value": "\u00b15"
+        }
+      ]
+    },
+    {
+      "id": "arena-image-gpt-mai-2026-10-26",
+      "providerId": "arena-image",
+      "category": "images",
+      "modelA": "GPT-Image-2 (Medium)",
+      "modelB": "MAI-Image 2.6",
+      "scoreA": 1381,
+      "scoreB": 1329,
+      "metric": "Text-to-image \u00b7 Arena score",
+      "sourceUrl": "https://arena.ai/leaderboard/image/text-to-image",
+      "sourceDate": "2026-10-26",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Votes",
+          "value": "103,385"
+        },
+        {
+          "label": "Uncertainty",
+          "value": "\u00b14"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Votes",
+          "value": "34,596"
+        },
+        {
+          "label": "Uncertainty",
+          "value": "\u00b15"
+        }
+      ]
+    },
+    {
+      "id": "arena-image-nano-grok-2026-10-26",
+      "providerId": "arena-image",
+      "category": "images",
+      "modelA": "Gemini Nano Banana 2.1",
+      "modelB": "Grok Imagine Image 2.0",
+      "scoreA": 1325,
+      "scoreB": 1317,
+      "metric": "Text-to-image \u00b7 Arena score",
+      "sourceUrl": "https://arena.ai/leaderboard/image/text-to-image",
+      "sourceDate": "2026-10-26",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference. Both entries are preliminary.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Votes",
+          "value": "5,290"
+        },
+        {
+          "label": "Uncertainty",
+          "value": "\u00b19"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Votes",
+          "value": "10,902"
+        },
+        {
+          "label": "Uncertainty",
+          "value": "\u00b17"
+        }
+      ]
+    },
+    {
+      "id": "design-image-sunburst-flare-2026-11-04",
+      "providerId": "designarena-image",
+      "category": "images",
+      "modelA": "GPT-Image-2.5 Sunburst",
+      "modelB": "GPT-Image-2.5 Flare",
+      "scoreA": 1416,
+      "scoreB": 1387,
+      "metric": "Overall Image \u00b7 Elo",
+      "sourceUrl": "https://www.designarena.ai/leaderboard/image",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference. Values are from the primary overall Image leaderboard, not its separate subcategory charts. Updated November 4, 2026 at 08:10 UTC.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Battles",
+          "value": "15,118"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Battles",
+          "value": "15,429"
+        }
+      ]
+    },
+    {
+      "id": "design-image-gpt-canva-2026-11-04",
+      "providerId": "designarena-image",
+      "category": "images",
+      "modelA": "GPT Image 2",
+      "modelB": "Canva Craft",
+      "scoreA": 1362,
+      "scoreB": 1341,
+      "metric": "Overall Image \u00b7 Elo",
+      "sourceUrl": "https://www.designarena.ai/leaderboard/image",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference. Values are from the primary overall Image leaderboard, not its separate subcategory charts. Updated November 4, 2026 at 08:10 UTC.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Battles",
+          "value": "63,044"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Battles",
+          "value": "1,304"
+        }
+      ]
+    },
+    {
+      "id": "design-image-reve-mai-2026-11-04",
+      "providerId": "designarena-image",
+      "category": "images",
+      "modelA": "Reve 2.1",
+      "modelB": "MAI-Image 2.6",
+      "scoreA": 1320,
+      "scoreB": 1317,
+      "metric": "Overall Image \u00b7 Elo",
+      "sourceUrl": "https://www.designarena.ai/leaderboard/image",
+      "sourceDate": "2026-11-04",
+      "checkedOn": "2026-11-04",
+      "notes": "Overall text-to-image human-preference ranking; image editing is excluded. Exact quality settings are part of the model name. Point estimates do not establish a statistically significant difference. Values are from the primary overall Image leaderboard, not its separate subcategory charts. Updated November 4, 2026 at 08:10 UTC.",
+      "lowerIsBetter": false,
+      "relevance": 5,
+      "modelAStats": [
+        {
+          "label": "Battles",
+          "value": "43,408"
+        }
+      ],
+      "modelBStats": [
+        {
+          "label": "Battles",
+          "value": "30,457"
+        }
+      ]
     }
   ],
   "seedMethodology": {
-    "label": "Editorial seed · community votes start at zero",
-    "description": "Initial Elo scores are subjective editorial priors informed by published methods and public discussion. They are not a measured internet consensus or imported user votes. Your votes judge each board’s published model rankings.",
+    "label": "Editorial seed \u00b7 community votes start at zero",
+    "description": "Initial Elo scores are subjective editorial priors informed by published methods and public discussion. They are not a measured internet consensus or imported user votes. Your votes judge each board\u2019s published model rankings.",
     "checkedOn": "2026-11-03"
-  }
+  },
+  "categories": [
+    {
+      "id": "text",
+      "label": "Text",
+      "title": "Text",
+      "description": "Language models, according to the people keeping score."
+    },
+    {
+      "id": "speech",
+      "label": "Speech",
+      "title": "Speech",
+      "description": "Speech generation and recognition. Every word counts."
+    },
+    {
+      "id": "agents",
+      "label": "Agents",
+      "title": "Speech Agents",
+      "description": "Voice agents, ranked on conversation quality and getting the job done."
+    },
+    {
+      "id": "images",
+      "label": "Image Generation",
+      "title": "Image Generation",
+      "description": "Text-to-image rankings. Beauty is in the eye of the benchmark."
+    }
+  ],
+  "researchedOn": "2026-11-04"
 }
