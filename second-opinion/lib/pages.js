@@ -13,7 +13,7 @@ function shell(page, content, script = false) {
 <body data-page="${page}"><a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="header-inner"><a class="brand" href="/" aria-label="Leaderboard Arena home"><span class="brand-mark" aria-hidden="true">LA<span>*</span></span><span>leaderboard<span class="brand-arena">arena</span></span></a><nav class="page-tabs" aria-label="Main navigation">${nav.map(([id,href,label]) => `<a href="${href}"${id===page || (page==='sources'&&id==='about')?' aria-current="page"':''}>${label}</a>`).join('')}</nav><a class="header-action" href="${page==='arena'?'/':'/arena'}">${page==='arena'?'See the rankings':'Have an opinion?'} ${arrow}</a></div></header>
 ${content}
-<footer class="site-footer"><div class="footer-inner"><a class="footer-brand" href="/">leaderboard arena<span>*</span></a><p>A leaderboard for your leaderboards.<br>More = gooder.</p><div class="footer-links"><a href="/about">The founding grievance ${arrow}</a><a href="/sources">Sources & methodology ${arrow}</a></div><small>© 2026 LEADERBOARD ARENA</small></div></footer>${script?'<script src="/app.js"></script>':''}</body></html>`;
+<footer class="site-footer"><div class="footer-inner"><a class="footer-brand" href="/">leaderboard arena<span>*</span></a><p>A leaderboard for your leaderboards.<br>More = gooder.</p><div class="footer-links"><a href="/about">The founding grievance ${arrow}</a><a href="/sources">Sources & methodology ${arrow}</a></div><small>© 2026 LEADERBOARD ARENA</small></div></footer>${script?'<script src="/matchmaking.js"></script><script src="/app.js"></script>':''}</body></html>`;
 }
 
 function rankingsPage(catalog) {

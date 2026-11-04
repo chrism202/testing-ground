@@ -6,7 +6,7 @@ const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<'
 const score = provider => scores[provider.id] || { elo: provider.seedElo, votes: 0, agreements: 0 };
 const number = value => new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(value);
 const date = iso => new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeZone: 'UTC' }).format(new Date(iso + 'T12:00:00Z'));
-let catalog, scores = {}, voted = new Set(), category = 'all', current, busy = false;
+let catalog, scores = {}, claimVotes = {}, voted = new Set(), category = 'all', current, busy = false;
 let pendingRequest, statusTimer;
 
 function setStatus(text, temporary = false) {
@@ -40,47 +40,68 @@ function renderRankings() {
   }).join('');
   $('#roster-count').textContent = `${rows.length} leaderboard${rows.length===1?'':'s'}`;
 }
-function matchup(skip = false) {
+async function matchup(skip = false, refresh = true) {
   if (!isArena) return;
-  const pool = catalog.claims.filter(c => (category === 'all' || c.category === category) && !voted.has(c.id));
-  const choices = skip && pool.length > 1 ? pool.filter(c => c.id !== current?.id) : pool;
-  current = choices.length ? choices[Math.floor(Math.random()*choices.length)] : null;
-  pendingRequest = null;
-  setStatus('');
-  $('#claim-details').hidden = !current;
-  $('#claim-source').hidden = !current;
-  $('#claim-mark').hidden = !current;
-  $('#arena').classList.toggle('is-complete', !current);
-  if (!current) {
-    $('#claim-provider').textContent = 'You’ve called them all.';
-    $('#claim-metric').textContent = 'Try another category, or take a look at the rankings.';
-    $('#proposition').textContent = 'No more rankings in this category.';
-    $('#claim-question').innerHTML = `<a href="/" class="complete-link">See the rankings ${arrow}</a>`;
-    $('#arena-category').textContent = '';
-    controls(); return;
-  }
-  const provider = catalog.providers.find(p => p.id === current.providerId);
-  const color = /^#[0-9a-f]{6}$/i.test(provider.color) ? provider.color : '#e43b29';
-  $('#arena').style.setProperty('--provider-color', color);
-  $('#claim-mark').textContent = provider.mark || provider.name.charAt(0);
-  $('#arena-category').textContent = current.category;
-  $('#claim-provider').textContent = provider.name;
-  $('#proposition').textContent = `${provider.name} ranks ${current.modelA} above ${current.modelB}.`;
-  $('#model-a').textContent = current.modelA;
-  $('#model-b').textContent = current.modelB;
-  const maximum = Math.max(current.scoreA, current.scoreB, 0.001) * 1.12;
-  for (const [letter,value] of [['a',current.scoreA],['b',current.scoreB]]) {
-    $('#model-'+letter+'-score').textContent = number(value);
-    $('#model-'+letter+'-bar').style.width = Math.max(0, Math.min(100, value/maximum*100))+'%';
-  }
-  $('#claim-question').textContent = 'Does that ranking check out?';
-  $('#claim-metric').textContent = current.metric;
-  $('#claim-source').href = current.sourceUrl;
-  $('#claim-direction').textContent = current.lowerIsBetter ? 'Lower is better' : 'Higher is better';
-  $('#claim-date').textContent = date(current.sourceDate);
-  $('#claim-notes').textContent = current.notes;
-  $('#claim-notes').closest('details').open = false;
-  controls();
+  busy = true; controls();
+  try {
+    if (refresh && catalog.mode === 'shared') {
+      const response = await fetch('/api/leaderboard');
+      if (!response.ok) throw new Error('The next ranking could not be loaded. Please reload to try again.');
+      const latest = await response.json();
+      if (latest.mode !== 'shared') throw new Error('Shared voting is unavailable. Please reload to try again.');
+      scores = latest.scores;
+      claimVotes = latest.claimVotes;
+      for (const id of latest.votedClaims) voted.add(id);
+    }
+    current = matchmaking.selectClaim(catalog.claims, {
+      category, voted, claimVotes, skipId: skip ? current?.id : undefined,
+    });
+    pendingRequest = null;
+    setStatus('');
+    $('#claim-details').hidden = !current;
+    $('#claim-source').hidden = !current;
+    $('#claim-mark').hidden = !current;
+    $('#arena').classList.toggle('is-complete', !current);
+    if (!current) {
+      $('#claim-provider').textContent = 'You’ve called them all.';
+      $('#claim-metric').textContent = 'Try another category, or take a look at the rankings.';
+      $('#proposition').textContent = 'No more rankings in this category.';
+      $('#claim-question').innerHTML = `<a href="/" class="complete-link">See the rankings ${arrow}</a>`;
+      $('#arena-category').textContent = '';
+      return true;
+    }
+    const provider = catalog.providers.find(p => p.id === current.providerId);
+    const color = /^#[0-9a-f]{6}$/i.test(provider.color) ? provider.color : '#e43b29';
+    $('#arena').style.setProperty('--provider-color', color);
+    $('#claim-mark').textContent = provider.mark || provider.name.charAt(0);
+    $('#arena-category').textContent = current.category;
+    $('#claim-provider').textContent = provider.name;
+    $('#proposition').textContent = `${provider.name} ranks ${current.modelA} above ${current.modelB}.`;
+    $('#model-a').textContent = current.modelA;
+    $('#model-b').textContent = current.modelB;
+    const maximum = Math.max(current.scoreA, current.scoreB, 0.001) * 1.12;
+    for (const [letter,value] of [['a',current.scoreA],['b',current.scoreB]]) {
+      $('#model-'+letter+'-score').textContent = number(value);
+      $('#model-'+letter+'-bar').style.width = Math.max(0, Math.min(100, value/maximum*100))+'%';
+    }
+    $('#claim-question').textContent = 'Does that ranking check out?';
+    $('#claim-metric').textContent = current.metric;
+    $('#claim-source').href = current.sourceUrl;
+    $('#claim-direction').textContent = current.lowerIsBetter ? 'Lower is better' : 'Higher is better';
+    $('#claim-date').textContent = date(current.sourceDate);
+    $('#claim-notes').textContent = current.notes;
+    $('#claim-notes').closest('details').open = false;
+    return true;
+  } catch (error) {
+    current = null;
+    $('#claim-details').hidden = true;
+    $('#claim-source').hidden = true;
+    $('#claim-mark').hidden = true;
+    $('#claim-provider').textContent = 'A brief recess.';
+    $('#claim-metric').textContent = 'Please reload to try again.';
+    setStatus(error.message);
+    return false;
+  } finally { busy = false; controls(); }
 }
 function saveLocal() {
   try { localStorage.setItem(localKey, JSON.stringify({scores, voted:[...voted]})); return true; }
@@ -110,9 +131,10 @@ async function vote(agree) {
       scores[provider.id] = {elo:before.elo+32*((agree?1:0)-expected),votes:before.votes+1,agreements:before.agreements+(agree?1:0)};
     }
     voted.add(claim.id);
+    claimVotes[claim.id] = (claimVotes[claim.id] || 0) + 1;
     if (catalog.mode === 'local') saved = saveLocal();
-    matchup();
-    setStatus(saved ? 'Noted.' : 'Your browser couldn’t save this vote.', saved);
+    const advanced = await matchup();
+    if (advanced) setStatus(saved ? 'Noted.' : 'Your browser couldn’t save this vote.', saved);
   } catch (error) { setStatus(error.message); }
   finally { busy = false; controls(); }
 }
@@ -120,7 +142,7 @@ async function init() {
   try {
     const response = await fetch('/api/leaderboard');
     if (!response.ok) throw new Error('The rankings are unavailable. Please reload to try again.');
-    catalog = await response.json(); scores = catalog.scores; voted = new Set(catalog.votedClaims);
+    catalog = await response.json(); scores = catalog.scores; claimVotes = catalog.claimVotes || {}; voted = new Set(catalog.votedClaims);
     if (catalog.mode === 'local') {
       try {
         const saved = JSON.parse(localStorage.getItem(localKey));
@@ -130,10 +152,11 @@ async function init() {
             if (s && Number.isFinite(s.elo) && Number.isInteger(s.votes) && s.votes >= 0 && Number.isInteger(s.agreements) && s.agreements >= 0 && s.agreements <= s.votes) scores[p.id] = s;
           }
           voted = new Set(saved.voted.filter(id => catalog.claims.some(c => c.id === id)));
+          claimVotes = Object.fromEntries([...voted].map(id => [id, 1]));
         }
       } catch {}
     }
-    renderRankings(); matchup();
+    renderRankings(); await matchup(false, false);
     $('#results').setAttribute('aria-busy','false');
     document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
       if (busy) return;

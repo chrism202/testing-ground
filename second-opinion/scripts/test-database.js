@@ -30,21 +30,19 @@ async function testDatabase() {
           RAISE EXCEPTION 'Unknown claim was accepted';
         EXCEPTION WHEN SQLSTATE 'P4000' THEN NULL;
         END;
-        FOR i IN 1..60 LOOP
+        FOR i IN 1..250 LOOP
           PERFORM * FROM la_cast_vote(gen_random_uuid(), 'quota-voter-' || i, evaluator || '-quota', ranking, true);
         END LOOP;
-        BEGIN
-          PERFORM * FROM la_cast_vote(gen_random_uuid(), 'quota-voter-61', evaluator || '-quota', ranking, true);
-          RAISE EXCEPTION 'Rate limit did not reject vote 61';
-        EXCEPTION WHEN SQLSTATE 'P4290' THEN NULL;
-        END;
+        IF (SELECT count(*) FROM la_votes WHERE network_hash = evaluator || '-quota') <> 250 THEN
+          RAISE EXCEPTION 'Shared-network voters were blocked';
+        END IF;
         RAISE EXCEPTION 'Roll back database self-test fixtures' USING ERRCODE = 'ZX000';
       EXCEPTION WHEN SQLSTATE 'ZX000' THEN NULL;
       END;
       IF EXISTS (SELECT 1 FROM la_evaluators e WHERE e.id = evaluator) THEN RAISE EXCEPTION 'Test fixtures were not rolled back'; END IF;
     END;
   $$;`);
-  console.log('Database checks passed: agree/disagree, idempotent retries, one vote per browser per claim, unknown claims, rate limits, fixture rollback.');
+  console.log('Database checks passed: agree/disagree, idempotent retries, one vote per browser per claim, unknown claims, 250 voters on one network, fixture rollback.');
 }
 
 if (require.main === module) testDatabase().catch(error => {

@@ -36,8 +36,8 @@ DECLARE
   evaluator text;
   previous la_votes%ROWTYPE;
 BEGIN
-  -- Serialize each network's quota checks, including simultaneous requests.
-  PERFORM pg_advisory_xact_lock(hashtextextended(network_id, 0));
+  -- Serialize only this browser's retries; shared networks have no vote quota.
+  PERFORM pg_advisory_xact_lock(hashtextextended(actor, 0));
   SELECT c.evaluator_id INTO evaluator FROM la_claims c WHERE c.id = ranking_id AND c.active;
   IF evaluator IS NULL THEN RAISE EXCEPTION 'Unknown ranking' USING ERRCODE = 'P4000'; END IF;
 
@@ -49,10 +49,6 @@ BEGIN
     END IF;
     RETURN QUERY SELECT e.id, e.elo, e.votes, e.agreements, true FROM la_evaluators e WHERE e.id = evaluator;
     RETURN;
-  END IF;
-
-  IF (SELECT count(*) FROM la_votes v WHERE v.network_hash = network_id AND v.created_at > now() - interval '1 hour') >= 60 THEN
-    RAISE EXCEPTION 'Rate limited' USING ERRCODE = 'P4290';
   END IF;
 
   -- One evaluator changes per vote; model ratings and other evaluators do not.
