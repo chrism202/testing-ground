@@ -16,21 +16,25 @@ http.createServer((req, res) => {
   if (pathname === '/api/leaderboard' || pathname === '/api/vote') {
     return require('.' + pathname)(req, res);
   }
-  if (pathname === '/sources' || pathname === '/sources/') {
-    const catalog = require('./data/catalog.json');
-    const { sourcePage } = require('./lib/source-page');
-    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    return res.end(sourcePage(fs.readFileSync(path.join(__dirname, 'about.html'), 'utf8'), catalog));
+  const route = pathname.replace(/\/$/, '') || '/';
+  if (['/review','/dashboard','/rankings'].includes(route)) {
+    res.writeHead(307, { Location:'/' });
+    return res.end();
   }
-  if (pathname === '/dashboard' || pathname === '/review') {
-    const { designPage } = require('./lib/design-page');
+  const { rankingsPage, arenaPage, aboutPage } = require('./lib/pages');
+  const catalog = require('./data/catalog.json');
+  const about = () => aboutPage(fs.readFileSync(path.join(__dirname, 'about.html'), 'utf8'));
+  const pages = {
+    '/': () => rankingsPage(catalog),
+    '/arena': arenaPage,
+    '/about': about,
+    '/sources': () => require('./lib/source-page').sourcePage(about(), catalog),
+  };
+  if (Object.hasOwn(pages, route)) {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    return res.end(designPage(pathname.slice(1), require('./data/catalog.json')));
+    return res.end(pages[route]());
   }
-
-  // Match Vercel's clean URL for the static About page during local development.
-  const routes = { '/': 'index.html', '/about': 'about.html', '/about/': 'about.html' };
-  const file = path.join(__dirname, routes[pathname] || pathname);
+  const file = path.join(__dirname, pathname);
   if (!file.startsWith(__dirname + path.sep)) {
     res.writeHead(403);
     return res.end();

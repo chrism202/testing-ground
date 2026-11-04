@@ -11,7 +11,9 @@
       "researchUrls": [
         "https://artificialanalysis.ai/leaderboards/models",
         "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
-      ]
+      ],
+      "color": "#8264c5",
+      "mark": "AA"
     },
     {
       "id": "arena-text",
@@ -26,7 +28,9 @@
         "https://arxiv.org/abs/2504.20879",
         "https://arena.ai/blog/our-response/",
         "https://arena.ai/blog/style-control"
-      ]
+      ],
+      "color": "#e93f2b",
+      "mark": "Ar"
     },
     {
       "id": "aa-provider-voice",
@@ -38,7 +42,9 @@
       "seedReason": "A useful blind-listening signal; native voices and listener taste make this a preference ranking.",
       "researchUrls": [
         "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice"
-      ]
+      ],
+      "color": "#8264c5",
+      "mark": "AA"
     },
     {
       "id": "aa-controlled-voice",
@@ -50,7 +56,9 @@
       "seedReason": "Controlling the voices helps comparisons; voice-cloning skill and preference are still different things.",
       "researchUrls": [
         "https://artificialanalysis.ai/text-to-speech/leaderboard/controlled-voice"
-      ]
+      ],
+      "color": "#8264c5",
+      "mark": "AA"
     },
     {
       "id": "aa-terminalbench",
@@ -62,7 +70,9 @@
       "seedReason": "A documented common harness and repeated runs earn credit; this is one terminal-task distribution.",
       "researchUrls": [
         "https://artificialanalysis.ai/evaluations/terminalbench-2-1"
-      ]
+      ],
+      "color": "#8264c5",
+      "mark": "AA"
     },
     {
       "id": "aa-automationbench",
@@ -74,7 +84,9 @@
       "seedReason": "Work-like tasks are welcome; private tasks and partial-credit choices are harder to independently audit.",
       "researchUrls": [
         "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3"
-      ]
+      ],
+      "color": "#8264c5",
+      "mark": "AA"
     },
     {
       "id": "livebench",
@@ -88,7 +100,9 @@
         "https://livebench.ai/",
         "https://arxiv.org/abs/2406.19314",
         "https://www.reddit.com/r/singularity/comments/1eznvav/"
-      ]
+      ],
+      "color": "#2470c8",
+      "mark": "LB"
     },
     {
       "id": "epoch-eci",
@@ -100,7 +114,9 @@
       "seedReason": "Transparent composite modeling and downloadable data earn our highest opening bid. The index still inherits its component benchmarks and uncertainty.",
       "researchUrls": [
         "https://epoch.ai/eci"
-      ]
+      ],
+      "color": "#167a61",
+      "mark": "Ep"
     },
     {
       "id": "vals-index",
@@ -112,7 +128,9 @@
       "seedReason": "Domain-specific work is a useful counterweight to puzzle tests; GDP weighting and mostly private tasks are editorial choices.",
       "researchUrls": [
         "https://www.vals.ai/benchmarks/vals_index"
-      ]
+      ],
+      "color": "#be6c45",
+      "mark": "Va"
     },
     {
       "id": "scale-seal",
@@ -124,7 +142,9 @@
       "seedReason": "Hard expert-designed tasks are valuable; commercial operation and partly private data keep the initial score conservative.",
       "researchUrls": [
         "https://labs.scale.com/leaderboard"
-      ]
+      ],
+      "color": "#292b32",
+      "mark": "Sc"
     },
     {
       "id": "simplebench",
@@ -136,7 +156,9 @@
       "seedReason": "An appealing everyday-reasoning stress test with a smaller question set. We discount the temptation to call it universal intelligence.",
       "researchUrls": [
         "https://simple-bench.com/"
-      ]
+      ],
+      "color": "#eb8e34",
+      "mark": "Sb"
     },
     {
       "id": "stanford-helm",
@@ -149,7 +171,9 @@
       "researchUrls": [
         "https://crfm.stanford.edu/helm/capabilities/latest/",
         "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html"
-      ]
+      ],
+      "color": "#a52d42",
+      "mark": "H"
     },
     {
       "id": "berkeley-bfcl",
@@ -161,7 +185,9 @@
       "seedReason": "Open tooling and a clear function-calling focus help. Tool-calling skill is narrower than general agent usefulness.",
       "researchUrls": [
         "https://gorilla.cs.berkeley.edu/leaderboard.html"
-      ]
+      ],
+      "color": "#316d93",
+      "mark": "BF"
     },
     {
       "id": "aider-polyglot",
@@ -174,7 +200,9 @@
       "researchUrls": [
         "https://aider.chat/docs/leaderboards/",
         "https://aider.chat/2024/12/21/polyglot.html"
-      ]
+      ],
+      "color": "#517543",
+      "mark": "ai"
     },
     {
       "id": "swebench",
@@ -188,7 +216,9 @@
         "https://www.swebench.com/",
         "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
         "https://epoch.ai/benchmarks/swe-bench-verified/review"
-      ]
+      ],
+      "color": "#d0523e",
+      "mark": "Sw"
     },
     {
       "id": "tts-arena",
@@ -201,7 +231,9 @@
       "researchUrls": [
         "https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2",
         "https://docs.ttsarena.org/ranking"
-      ]
+      ],
+      "color": "#5871b3",
+      "mark": "TTS"
     },
     {
       "id": "hf-open-asr",
@@ -213,7 +245,9 @@
       "seedReason": "Broad, inspectable speech-recognition comparisons earn credit. Dataset mix and transcription conventions still affect WER.",
       "researchUrls": [
         "https://huggingface.co/spaces/hf-audio/open_asr_leaderboard"
-      ]
+      ],
+      "color": "#c58a16",
+      "mark": "HF"
     },
     {
       "id": "gaia",
@@ -225,7 +259,9 @@
       "seedReason": "Multi-step assistant tasks are compelling. Public validation tasks and self-reported system submissions keep our seed cautious.",
       "researchUrls": [
         "https://huggingface.co/spaces/gaia-benchmark/leaderboard"
-      ]
+      ],
+      "color": "#8d548f",
+      "mark": "G"
     }
   ],
   "claims": [
