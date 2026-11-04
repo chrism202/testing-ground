@@ -4,7 +4,7 @@ A tongue-in-cheek leaderboard for AI leaderboards. Open `index.html` or run `npm
 
 ## Deploy to Vercel
 
-Set the project's Root Directory to `second-opinion`. The checked-in `vercel.json` selects the Other (static) framework, runs `npm run build`, and publishes `public/`. The build copies only `index.html`, `style.css`, and `app.js`; no server or environment variables are needed. Do not select the Node.js framework: `app.js` is browser code, and running it as a server causes `FUNCTION_INVOCATION_FAILED`.
+Set the project's Root Directory to `second-opinion`. The checked-in `vercel.json` selects the Other (static) framework, runs `npm run build`, and publishes `public/`. The build copies only `index.html`, `about.html`, `style.css`, and `app.js`; no server or environment variables are needed. Clean URLs serve the About page at `/about`. Do not select the Node.js framework: `app.js` is browser code, and running it as a server causes `FUNCTION_INVOCATION_FAILED`.
 
 Run `npm run build` locally to check the production files. `public/` is generated and should not be committed.
 
