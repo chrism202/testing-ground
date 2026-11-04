@@ -5,7 +5,9 @@ const catalog = require('../data/catalog.json');
 
 async function migrate() {
   const sql = database();
-  await sql.query(fs.readFileSync(path.join(__dirname, '../db/schema.sql'), 'utf8'));
+  const statements = fs.readFileSync(path.join(__dirname, '../db/schema.sql'), 'utf8')
+    .split('-- statement-break').map(s => s.trim()).filter(Boolean);
+  await sql.transaction(statements.map(statement => sql.query(statement)));
   await sql.transaction([
     ...catalog.providers.map(p => sql`INSERT INTO la_evaluators(id, seed_elo, elo) VALUES (${p.id}, ${p.seedElo}, ${p.seedElo}) ON CONFLICT (id) DO NOTHING`),
     sql`UPDATE la_claims SET active = false`,

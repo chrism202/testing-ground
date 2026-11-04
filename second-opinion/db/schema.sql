@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS la_evaluators (
   agreements integer NOT NULL DEFAULT 0 CHECK (agreements BETWEEN 0 AND votes)
 );
 
+-- statement-break
 CREATE TABLE IF NOT EXISTS la_claims (
   id text PRIMARY KEY,
   evaluator_id text NOT NULL REFERENCES la_evaluators(id),
@@ -13,6 +14,7 @@ CREATE TABLE IF NOT EXISTS la_claims (
   active boolean NOT NULL DEFAULT true
 );
 
+-- statement-break
 CREATE TABLE IF NOT EXISTS la_votes (
   id uuid PRIMARY KEY,
   voter_hash text NOT NULL,
@@ -22,8 +24,10 @@ CREATE TABLE IF NOT EXISTS la_votes (
   created_at timestamptz NOT NULL DEFAULT now(),
   UNIQUE (voter_hash, claim_id)
 );
+-- statement-break
 CREATE INDEX IF NOT EXISTS la_votes_network_time ON la_votes(network_hash, created_at);
 
+-- statement-break
 CREATE OR REPLACE FUNCTION la_cast_vote(
   request_id uuid, actor text, network_id text, ranking_id text, agreement boolean
 ) RETURNS TABLE (provider_id text, elo double precision, votes integer, agreements integer, duplicate boolean)
