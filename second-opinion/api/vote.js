@@ -23,10 +23,6 @@ module.exports = async (req, res) => {
     const [result] = await database()`SELECT * FROM la_cast_vote(${body.requestId}::uuid, ${identity}, ${address}, ${body.claimId}, ${body.agree})`;
     return json(res, 200, result);
   } catch (error) {
-    if (error.code === 'P4290') {
-      res.setHeader('Retry-After', '3600');
-      return json(res, 429, { error: 'A lot of strong opinions from this connection. Try again in an hour.' });
-    }
     if (error.code === 'P4000') return json(res, 400, { error: 'That ranking is no longer available.' });
     if (error.status) return json(res, error.status, { error: error.message });
     console.error('Vote failed:', error.code || error.name);

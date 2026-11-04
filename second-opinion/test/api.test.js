@@ -78,6 +78,7 @@ test('local development exposes real claims without fabricated community votes',
     assert.equal(res.status, 200);
     assert.equal(res.body.mode, 'local');
     assert.deepEqual(res.body.scores, {});
+    assert.deepEqual(res.body.claimVotes, {});
     assert.equal(res.body.claims.length, catalog.claims.length);
     assert.equal(res.headers['Cache-Control'], 'private, no-store');
   } finally { if (old !== undefined) process.env.DATABASE_URL = old; }

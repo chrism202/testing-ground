@@ -278,7 +278,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; model settings are part of each model name.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 4
     },
     {
       "id": "aa-intelligence-astra-sol-2026-11-03",
@@ -293,7 +294,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; model settings are part of each model name.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 4
     },
     {
       "id": "arena-text-opus-fable-2026-10-27",
@@ -308,7 +310,8 @@
       "sourceDate": "2026-10-27",
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates. The reported confidence intervals overlap; you are judging the published ordering.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 4
     },
     {
       "id": "arena-text-gemini-astra-2026-10-27",
@@ -323,7 +326,8 @@
       "sourceDate": "2026-10-27",
       "checkedOn": "2026-11-03",
       "notes": "Gemini 4 Carbon is marked preliminary by the source.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 5
     },
     {
       "id": "aa-provider-voice-eleven-sonic-2026-11-03",
@@ -338,7 +342,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; model settings are part of each model name.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 4
     },
     {
       "id": "aa-provider-voice-qwen-fish-2026-11-03",
@@ -353,7 +358,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; model settings are part of each model name.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 3
     },
     {
       "id": "aa-controlled-voice-heygen-sonic-2026-11-03",
@@ -368,7 +374,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; model settings are part of each model name.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 3
     },
     {
       "id": "aa-controlled-voice-qwen-eleven-2026-11-03",
@@ -383,7 +390,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; model settings are part of each model name.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 4
     },
     {
       "id": "aa-terminalbench-fable-astra-2026-11-03",
@@ -398,7 +406,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Artificial Analysis runs the Terminus 2 harness, averaged over three repeats per task.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 5
     },
     {
       "id": "aa-terminalbench-fable-effort-2026-11-03",
@@ -413,7 +422,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Same model, different reasoning effort. You are judging this published ordering.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 2
     },
     {
       "id": "aa-automationbench-astra-grok-2026-09-07",
@@ -428,7 +438,8 @@
       "sourceDate": "2026-09-07",
       "checkedOn": "2026-11-03",
       "notes": "Historical snapshot from the Index v4.3 launch article, not a live leaderboard. Partial-credit objective score with no guardrail violations.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 4
     },
     {
       "id": "aa-automationbench-grok-glm-2026-09-07",
@@ -443,7 +454,8 @@
       "sourceDate": "2026-09-07",
       "checkedOn": "2026-11-03",
       "notes": "Historical snapshot from the Index v4.3 launch article, not a live leaderboard. Partial-credit objective score with no guardrail violations.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 3
     },
     {
       "id": "livebench-fable-astra-2026-10-25",
@@ -459,7 +471,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Computed from the official table using its published weights: Long Agentic ×2, Coding and Design ×1.5, others ×1. Rounded to two decimals.",
       "lowerIsBetter": false,
-      "dataUrl": "https://livebench.ai/data/20261025/table.csv"
+      "dataUrl": "https://livebench.ai/data/20261025/table.csv",
+      "relevance": 5
     },
     {
       "id": "livebench-opus-sol-2026-10-25",
@@ -475,7 +488,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Computed from the official table using its published weights: Long Agentic ×2, Coding and Design ×1.5, others ×1. Rounded to two decimals.",
       "lowerIsBetter": false,
-      "dataUrl": "https://livebench.ai/data/20261025/table.csv"
+      "dataUrl": "https://livebench.ai/data/20261025/table.csv",
+      "relevance": 4
     },
     {
       "id": "epoch-eci-astra-opus-2026-11-03",
@@ -491,7 +505,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; confidence intervals overlap. ECI is an index, not a percentage.",
       "lowerIsBetter": false,
-      "dataUrl": "https://epoch.ai/data/eci_scores.csv"
+      "dataUrl": "https://epoch.ai/data/eci_scores.csv",
+      "relevance": 5
     },
     {
       "id": "epoch-eci-opus-terra-2026-11-03",
@@ -507,7 +522,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Source point estimates; confidence intervals overlap. ECI is an index, not a percentage.",
       "lowerIsBetter": false,
-      "dataUrl": "https://epoch.ai/data/eci_scores.csv"
+      "dataUrl": "https://epoch.ai/data/eci_scores.csv",
+      "relevance": 4
     },
     {
       "id": "vals-index-sonnet-opus-2026-10-30",
@@ -522,7 +538,8 @@
       "sourceDate": "2026-10-30",
       "checkedOn": "2026-11-03",
       "notes": "A curated snapshot of the source point estimates, not a live feed.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 4
     },
     {
       "id": "vals-index-gemini-astra-2026-10-30",
@@ -537,7 +554,8 @@
       "sourceDate": "2026-10-30",
       "checkedOn": "2026-11-03",
       "notes": "A curated snapshot of the source point estimates, not a live feed.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 5
     },
     {
       "id": "scale-seal-astra-opus-2026-11-03",
@@ -552,7 +570,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "The Diamond board, not the original HLE. The source reports confidence intervals.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 5
     },
     {
       "id": "scale-seal-sol-gemini-2026-11-03",
@@ -567,7 +586,8 @@
       "sourceDate": "2026-11-03",
       "checkedOn": "2026-11-03",
       "notes": "Point-estimate ordering from the Scale overview; reported uncertainty overlaps.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 4
     },
     {
       "id": "simplebench-opus-fable-2026-11-03",
@@ -583,7 +603,8 @@
       "checkedOn": "2026-11-03",
       "notes": "A curated snapshot of the source point estimates, not a live feed.",
       "lowerIsBetter": false,
-      "dataUrl": "https://simple-bench.com/static/js/leaderboard-data.js"
+      "dataUrl": "https://simple-bench.com/static/js/leaderboard-data.js",
+      "relevance": 4
     },
     {
       "id": "simplebench-astra-sol-2026-11-03",
@@ -599,7 +620,8 @@
       "checkedOn": "2026-11-03",
       "notes": "A curated snapshot of the source point estimates, not a live feed.",
       "lowerIsBetter": false,
-      "dataUrl": "https://simple-bench.com/static/js/leaderboard-data.js"
+      "dataUrl": "https://simple-bench.com/static/js/leaderboard-data.js",
+      "relevance": 4
     },
     {
       "id": "stanford-helm-gemini-gpt4o-2025-03-20",
@@ -615,7 +637,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Historical launch-article snapshot from March 2025, not the latest HELM release.",
       "lowerIsBetter": false,
-      "dataUrl": "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html"
+      "dataUrl": "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html",
+      "relevance": 2
     },
     {
       "id": "stanford-helm-sonnet-deepseek-2025-03-20",
@@ -631,7 +654,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Historical launch-article snapshot from March 2025, not the latest HELM release.",
       "lowerIsBetter": false,
-      "dataUrl": "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html"
+      "dataUrl": "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html",
+      "relevance": 2
     },
     {
       "id": "berkeley-bfcl-opus-sonnet-2026-04-12",
@@ -647,7 +671,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Published V4 board. FC and Prompt modes are kept in the model labels; they are not identical configurations.",
       "lowerIsBetter": false,
-      "dataUrl": "https://gorilla.cs.berkeley.edu/data_overall.csv"
+      "dataUrl": "https://gorilla.cs.berkeley.edu/data_overall.csv",
+      "relevance": 3
     },
     {
       "id": "berkeley-bfcl-sonnet-gemini-2026-04-12",
@@ -663,7 +688,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Published V4 board. FC and Prompt modes are kept in the model labels; they are not identical configurations.",
       "lowerIsBetter": false,
-      "dataUrl": "https://gorilla.cs.berkeley.edu/data_overall.csv"
+      "dataUrl": "https://gorilla.cs.berkeley.edu/data_overall.csv",
+      "relevance": 3
     },
     {
       "id": "aider-polyglot-gpt5-o3pro-2025-08-25",
@@ -678,7 +704,8 @@
       "sourceDate": "2025-08-25",
       "checkedOn": "2026-11-03",
       "notes": "Historical published runs on 225 Exercism tasks. Different run dates and edit formats; source logs are available.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 2
     },
     {
       "id": "aider-polyglot-o3pro-gemini-2025-08-25",
@@ -693,7 +720,8 @@
       "sourceDate": "2025-08-25",
       "checkedOn": "2026-11-03",
       "notes": "Historical published runs on 225 Exercism tasks. Different run dates and edit formats; source logs are available.",
-      "lowerIsBetter": false
+      "lowerIsBetter": false,
+      "relevance": 2
     },
     {
       "id": "swebench-opus45-opus46-2026-02-17",
@@ -709,7 +737,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Both are published checked runs with the same mini-SWE-agent version. Historical February 2026 snapshot.",
       "lowerIsBetter": false,
-      "dataUrl": "https://raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json"
+      "dataUrl": "https://raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json",
+      "relevance": 2
     },
     {
       "id": "swebench-gemini-gpt52-2026-02-17",
@@ -725,7 +754,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Both are published checked runs with the same mini-SWE-agent version. Historical February 2026 snapshot.",
       "lowerIsBetter": false,
-      "dataUrl": "https://raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json"
+      "dataUrl": "https://raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json",
+      "relevance": 2
     },
     {
       "id": "tts-arena-gradium-inworld-2026-11-03",
@@ -741,7 +771,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Gradium is marked preliminary. Source uncertainty is substantial; this is the published point-estimate ordering.",
       "lowerIsBetter": false,
-      "dataUrl": "https://tts-agi-tts-arena-v2.hf.space/api/leaderboard"
+      "dataUrl": "https://tts-agi-tts-arena-v2.hf.space/api/leaderboard",
+      "relevance": 4
     },
     {
       "id": "tts-arena-named-active-2-2026-11-03",
@@ -757,7 +788,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Only named, active, non-suspended entries are included. Confidence intervals can overlap.",
       "lowerIsBetter": false,
-      "dataUrl": "https://tts-agi-tts-arena-v2.hf.space/api/leaderboard"
+      "dataUrl": "https://tts-agi-tts-arena-v2.hf.space/api/leaderboard",
+      "relevance": 2
     },
     {
       "id": "hf-open-asr-english-2026-11-02",
@@ -773,7 +805,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Lower WER is better. Published dataset mix for the November 2 release; this is speech recognition, not TTS.",
       "lowerIsBetter": true,
-      "dataUrl": "https://hf-audio-open-asr-leaderboard.hf.space/config"
+      "dataUrl": "https://hf-audio-open-asr-leaderboard.hf.space/config",
+      "relevance": 4
     },
     {
       "id": "hf-open-asr-longform-2026-11-02",
@@ -789,7 +822,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Lower WER is better. Published dataset mix for the November 2 release; this is speech recognition, not TTS.",
       "lowerIsBetter": true,
-      "dataUrl": "https://hf-audio-open-asr-leaderboard.hf.space/config"
+      "dataUrl": "https://hf-audio-open-asr-leaderboard.hf.space/config",
+      "relevance": 3
     },
     {
       "id": "gaia-alita-versions-2025-05-24",
@@ -805,7 +839,8 @@
       "checkedOn": "2026-11-03",
       "notes": "Historical self-reported agent-system submissions, not isolated base-model comparisons. Public validation split.",
       "lowerIsBetter": false,
-      "dataUrl": "https://huggingface.co/datasets/gaia-benchmark/results_public"
+      "dataUrl": "https://huggingface.co/datasets/gaia-benchmark/results_public",
+      "relevance": 1
     }
   ],
   "seedMethodology": {
