@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "cleanUrls": true,
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
+  "redirects": [
+    { "source": "/review", "destination": "/", "permanent": false },
+    { "source": "/dashboard", "destination": "/", "permanent": false },
+    { "source": "/rankings", "destination": "/", "permanent": false }
+  ]
+}

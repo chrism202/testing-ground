@@ -1,1 +1,13 @@
-{"name":"second-opinion","version":"1.0.0","private":true,"scripts":{"start":"node server.js","test":"node --test"}}
+{
+  "name": "leaderboard-arena",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0"
+  }
+}
