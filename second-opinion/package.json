@@ -5,6 +5,9 @@
   "scripts": {
     "build": "node build.mjs",
     "start": "node server.js",
-    "test": "node --test"
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0"
   }
 }

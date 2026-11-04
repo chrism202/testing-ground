@@ -51,3 +51,34 @@ a:focus-visible, button:focus-visible { outline: 2px solid #81942d; outline-offs
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Published ranking claims and editorial seed provenance. */
+.provider-category { display: block; margin-top: 5px; color: #66715c; font: 9px 'Space Mono', monospace; text-transform: uppercase; }
+.seed-details { margin-top: 8px; font-size: 11px; line-height: 1.6; }
+.seed-details summary { cursor: pointer; color: #626f50; }
+.seed-details p { margin: 8px 0; }
+.seed-details a { text-decoration: underline; color: var(--ink); }
+.claim-provider { font: 700 11px/1.6 'Space Mono', monospace; margin-top: 22px; text-transform: uppercase; letter-spacing: .04em; }
+.arena-content h3 { font-size: 31px; line-height: 1.2; overflow-wrap: anywhere; }
+.ranking-relation { display: block; font: italic 22px/1.8 'DM Serif Display', Georgia, serif; color: var(--ink); }
+.claim-metric { font: 700 10px/1.7 'Space Mono', monospace; color: #626f50; }
+.claim-evidence { font: 700 12px/1.8 'Space Mono', monospace; margin: 8px 0; }
+.claim-source-line { display: flex; flex-wrap: wrap; gap: 8px 18px; font: 9px/1.7 'Space Mono', monospace; }
+.claim-source-line a { text-decoration: underline; text-underline-offset: 3px; }
+.claim-source-line span { color: #626f50; }
+.arena-content p.claim-notes { font-size: 11px; line-height: 1.7; color: #66715c; margin: 12px 0 20px; }
+.source-links { padding-left: 20px; margin: 20px 0; font-size: 14px; line-height: 1.8; }
+.source-links a { text-decoration: underline; text-underline-offset: 3px; }
+.source-links small { display: block; color: #66715c; }
+.about-chapter p.source-claim-count { font-size: 13px; }
+button:disabled { cursor: default; opacity: .5; }
+.board-footer { flex-wrap: wrap; line-height: 1.8; }
+@media (min-width: 801px) and (max-width: 1200px) {
+  .arena-section { grid-template-columns: 1fr 1.7fr; }
+  .arena-side { display: none; }
+}
+@media (max-width: 420px) {
+  .arena-content { padding: 30px 22px; }
+  .arena-content h3 { font-size: 28px; }
+  .tab { padding: 14px 10px; }
+}

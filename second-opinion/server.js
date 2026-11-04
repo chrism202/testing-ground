@@ -13,6 +13,21 @@ http.createServer((req, res) => {
     return res.end('Bad request');
   }
 
+  if (pathname === '/api/leaderboard' || pathname === '/api/vote') {
+    return require('.' + pathname)(req, res);
+  }
+  if (pathname === '/sources' || pathname === '/sources/') {
+    const catalog = require('./data/catalog.json');
+    const { sourcePage } = require('./lib/source-page');
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    return res.end(sourcePage(fs.readFileSync(path.join(__dirname, 'about.html'), 'utf8'), catalog));
+  }
+  if (pathname === '/dashboard' || pathname === '/review') {
+    const { designPage } = require('./lib/design-page');
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    return res.end(designPage(pathname.slice(1), require('./data/catalog.json')));
+  }
+
   // Match Vercel's clean URL for the static About page during local development.
   const routes = { '/': 'index.html', '/about': 'about.html', '/about/': 'about.html' };
   const file = path.join(__dirname, routes[pathname] || pathname);
